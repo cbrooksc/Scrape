@@ -1,0 +1,33 @@
+<h1> Article Saver</h1>
+
+<h3> Save theArticle you need to view to later</h3>
+
+<ul>
+  {{#each Article}}
+  	<li>
+  	   <p>ID: {{this.id}}</p>
+       <p>Title: {{this.title}}</p>
+       <p>Summary:{{this.summary}}</p>
+  	</li>
+  {{/each}}
+</ul>
+
+<form action="/" method="POST">
+	<textarea type="text" name="Article"></textarea>
+
+	<button type="submit">Submit</button>
+</form>
+
+<h1>Article Planner</h1>
+
+<ul>
+  {{#each Article}}
+  <li>
+    <p>
+      {{this.id}}. {{this.article}}
+
+      <button data-articleid="{{this.id}}" class="delarticle">Delete Article!</button>
+    </p>
+  </li>
+  {{/each}}
+</ul>
