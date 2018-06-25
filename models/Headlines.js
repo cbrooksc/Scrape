@@ -4,22 +4,24 @@ var mongoose = require('mongoose');
 var scheme = mongoose.Schema;
 
 // Creates a new userSchema object
-var ArticleSchema = new Schema({
+var headlinesSchema = new Schema({
 
-    title: {
+    headlines: {
         type: String,
-        required: true
+        required: true,
+        unique:true
     },
-
-    link: {
-        type: String,
-        required: true
-    },
-    
     summary: {
         type: String,
         required: true
     },
+
+    date: String,
+    saved: {
+        type: Boolean,
+        required: false
+    },
+    
 
     // `note` is an object that stores a Note id
     // The ref property links the ObjectId to the Note model
@@ -30,6 +32,6 @@ var ArticleSchema = new Schema({
     }
 });
 //Creates our model form the above schema,using mongoose's model method
-var Article = mongoose.model("Article", ArticleSchema);
+var Article = mongoose.model("Headlines", headlinesSchema);
 //export the Article model
-module.exports = Article;
+module.exports = Headlines;

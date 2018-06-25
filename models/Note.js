@@ -4,11 +4,14 @@ var mongoose = require("mongoose");
 var Schema = Mongoose.Schema;
 
 //Using the schema constructor, to create a new NoteSchema object
- var NoteSchema = new Schema({
+ var noteSchema = new Schema({
 
-    title: String,
-
-    body: String
+    _headlinesId: {
+        type:Schema.Types.ObjectId,
+        ref: "Headlines"
+    },
+    date:String,
+    noteText: String
  });
 
  //Creates our model from the above schema, using mongoose's model method
